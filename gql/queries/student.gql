@@ -1,0 +1,8 @@
+query students{
+  students {
+    id
+    gender
+    firstname
+    lastname
+  }
+}

@@ -1,0 +1,11 @@
+mutation insert_students($firstname:String!, $lastname:String,$gender:String){
+  insert_students(objects: {firstname: $firstname, gender: $gender, lastname: $lastname}) {
+    affected_rows
+    returning {
+      firstname
+      gender
+      id
+      lastname
+    }
+  }
+}
