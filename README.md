@@ -24,3 +24,4 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 #demo
 
+![image](https://github.com/chanthavong/nuxt-hasura/blob/master/assets/profile.gif)
