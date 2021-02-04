@@ -21,7 +21,10 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+Youtube
+https://www.youtube.com/watch?v=_IutZN0_VpI&ab_channel=MarkStory
 
 #demo
+https://601b9d67b58ba3d6a0a402b9--focused-nightingale-cf98c0.netlify.app/
 
 ![image](https://github.com/chanthavong/nuxt-hasura/blob/master/assets/profile.gif)
