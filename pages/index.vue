@@ -49,6 +49,9 @@
                 <v-btn @click="getEdit(item)" color="success" icon
                   ><v-icon>mdi-pencil</v-icon></v-btn
                 >
+                <v-btn @click="openConfirmDelete(item, index)" color="error" icon
+                  ><v-icon>mdi-delete</v-icon></v-btn
+                >
               </td>
             </tr>
           </tbody>
@@ -88,6 +91,25 @@
         </v-card-text>
       </v-card>
     </v-dialog>
+
+    <!-- dialog delete confirm -->
+    <v-dialog
+      v-model="deleteForm"
+      persistent :overlay="false"
+      max-width="500px"
+      transition="dialog-transition"
+    >
+      <v-card-title primary-title>
+        Delete Student
+      </v-card-title>
+      <v-card-text>
+        <h4>{{edit.firstname+ ' '+ edit.lastname}}</h4>
+      </v-card-text>
+      <v-card-text>
+        <v-btn @click="deleteForm = !deleteForm" text color="primary">Cancel</v-btn>
+        <v-btn @click="deleteAction" color="error">Delete</v-btn>
+      </v-card-text>
+    </v-dialog>
   </div>
 </template>
 
@@ -109,7 +131,8 @@ export default {
         gender: "M"
       },
       showAdd: false,
-      showEdit: false
+      showEdit: false,
+      deleteForm: false
     };
   },
   mounted() {
@@ -165,6 +188,28 @@ export default {
         })
         .then(rs => {
           this.showEdit = false;
+        })
+        .catch(er => {
+          console.log(er);
+        });
+    },
+    openConfirmDelete(item, index) {
+      this.index = index
+      this.edit = item
+      this.deleteForm = true
+    },
+    deleteAction() {
+      this.$apollo
+        .mutate({
+          mutation: mutationStudent.delete_students,
+          variables: {
+            id: this.edit.id
+          }
+          
+        })
+        .then(rs => {
+          this.deleteForm = false;
+          this.students.splice(this.index, 1)
         })
         .catch(er => {
           console.log(er);

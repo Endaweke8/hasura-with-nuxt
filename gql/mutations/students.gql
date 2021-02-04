@@ -22,3 +22,9 @@ mutation update_students($firstname:String!, $lastname:String,$gender:String, $i
     }
   }
 }
+
+mutation delete_students($id:Int!){
+  delete_students(where: {id: {_eq: $id}}) {
+    affected_rows
+  }
+}
