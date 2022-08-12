@@ -45,12 +45,15 @@ export default {
     '@nuxtjs/apollo'
   ],
   apollo: {
+    cookieAttributes: {
+      expires: 7,
+    },
+    includeNodeModules: true,
+    authenticationType: "Bearer",
+    errorHandler: "~/plugins/apollo-error-handler.js",
     clientConfigs: {
-      default: {
-        // required  
-        httpEndpoint: 'https://my-test22.herokuapp.com/v1/graphql'
-      }
-    }
+      default: "~/apollo/clientConfig.js",
+    },
   },
   /*
   ** vuetify module configuration

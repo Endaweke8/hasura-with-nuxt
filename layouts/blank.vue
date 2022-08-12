@@ -1,17 +1,18 @@
 <template>
-  <div>
-    <v-app>
-      <nuxt/>
-    </v-app>
-  </div>
+    <div>
+       <v-app>
+        <nuxt/>
+       </v-app>
+
+    </div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {
+        
+    }
 </script>
 
-<style>
+<style scoped>
 
 </style>
