@@ -10,7 +10,6 @@ mutation insert_students($firstname:String!, $lastname:String,$gender:String){
   }
 }
 
-
 mutation update_students($firstname:String!, $lastname:String,$gender:String, $id:Int!){
   update_students(_set: {firstname: $firstname, gender: $gender, lastname: $lastname}, where: {id: {_eq: $id}}) {
     affected_rows
